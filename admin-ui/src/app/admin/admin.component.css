@@ -1,0 +1,10 @@
+.searchBar {
+    margin-right: 5px;
+}
+
+.deleteBtn {
+    /* float: right; */
+    /* margin-bottom: 5px; */
+    position: relative;
+    top: -50px;
+}
