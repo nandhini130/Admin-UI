@@ -36,14 +36,10 @@ export class UsersService {
   // selected user section
 
   setSelectedUsers(users: User[]) {
-    console.log('entered set');
-    
     this.selectedUsers.next(users)
   }
 
   getSelectedUSers(): Observable<User[]> {
-    console.log('entered get');
-
     return this.selectedUsers.asObservable();
   }
 

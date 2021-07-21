@@ -52,14 +52,11 @@ export class UserDetailsComponent implements OnInit {
     }
   }
 
-   // adds all users to the selected List
+  // adds all users to the selected List
    addAllUser() {
-   
     let users = JSON.parse(JSON.stringify(this.userDetails)); 
      this.indexRange = this.page * this.pageSize;
-    this.startIndex = this.indexRange - this.pageSize;
-        console.log('start ',this.startIndex, 'end: ', this.indexRange);
-        
+    this.startIndex = this.indexRange - this.pageSize;     
     const filterData = users.filter((element: any, index: number) => index >= this.startIndex && index < this.indexRange);
     this.selectedUsers  = filterData;
     this.usersService.setSelectedUsers(this.selectedUsers);
@@ -93,14 +90,19 @@ export class UserDetailsComponent implements OnInit {
     this.usersService.setSelectedUsers(this.selectedUsers);
   }
 
+  // user check validation
   isUserChecked(userData: User) {    
     return this.selectedUsers.some((user: User) => user.id === userData.id)
   }
 
+  // trigger delete component
   deleteUser(rowData: User) {
     const modalRef = this.modal.open(DeleteUserComponent);
+    modalRef.componentInstance.user = rowData;
+    modalRef.componentInstance.deleteMode = 'single';
   }
 
+  // trigger edit component
   editUser(rowData: User) {
     const modalRef = this.modal.open(EditUserComponent, { size: 'lg'});
     modalRef.componentInstance.editUserDetail = rowData;
