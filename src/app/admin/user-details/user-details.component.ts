@@ -15,6 +15,7 @@ export class UserDetailsComponent implements OnInit {
 
   public userDetails: any;
   public columns: any = []; // user table columns
+  public colSpanCount: number = 0;
   public selectedUsers: User[] = [];
   public deleteCount = 1;
   public isAllSelected: boolean = false;
@@ -39,6 +40,7 @@ export class UserDetailsComponent implements OnInit {
       {header: 'Role'},
       {header: 'Actions'}
     ];
+    this.colSpanCount = this.columns.length;
   }
 
 
@@ -97,14 +99,14 @@ export class UserDetailsComponent implements OnInit {
 
   // trigger delete component
   deleteUser(rowData: User) {
-    const modalRef = this.modal.open(DeleteUserComponent);
+    const modalRef = this.modal.open(DeleteUserComponent,  { centered: true,  windowClass: 'modal-dialog-centered'  });
     modalRef.componentInstance.user = rowData;
     modalRef.componentInstance.deleteMode = 'single';
   }
 
   // trigger edit component
   editUser(rowData: User) {
-    const modalRef = this.modal.open(EditUserComponent, { size: 'lg'});
+    const modalRef = this.modal.open(EditUserComponent, { size: 'lg', centered: true,  windowClass: 'modal-dialog-centered'  });
     modalRef.componentInstance.editUserDetail = rowData;
 
   }

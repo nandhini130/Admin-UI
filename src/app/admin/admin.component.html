@@ -1,15 +1,18 @@
 <h2> User Details</h2>
 
-<app-alert [error]="errorMessage" *ngIf="errorMessage"></app-alert>
+<app-alert></app-alert>
 
 <div class="input-group mb-3">
-    <input type="search" id="user-search" name="user-search" class="form-control searchBar" [(ngModel)]="searchInput" (blur)="filterUser()" placeholder="Search by name, email or role">
-    <button type="button" class="btn btn-danger" (click)="resetFilter()">
-      <i class="fa fa-refresh" aria-hidden="true"></i> Reset</button>
+    <input type="search" id="user-search" name="user-search" class="form-control searchBar darkMode" [(ngModel)]="searchInput" (blur)="filterUser()" (keyup.enter)="filterUser()"
+     placeholder="Search by name, email or role">
+    <button type="button" class="btn btn-danger customBtn headerBtn" (click)="resetFilter()">
+      <i class="fa fa-refresh" aria-hidden="true"></i> Reset
+    </button>
+  <button type="button" class="btn btn-danger customBtn headerBtn" (click)="deleteUsers()"><i class="fa fa-trash-o"></i> Delete Users</button>
+
 </div>
 
 <div>
   <app-user-details></app-user-details>
-  <button type="button" class="btn btn-danger deleteBtn" (click)="deleteUsers()"><i class="fa fa-trash-o"></i> Delete Users</button>
 </div>
 

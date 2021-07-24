@@ -60,7 +60,15 @@ export class UsersService {
         //    }
         // });
         const userIndex =  this.userDetails.findIndex( user => user.id === users.id);
+        console.log( this.userDetails[userIndex]);
+        
+
         this.userDetails[userIndex] = users;
+        this.userDetails = [...new Set(this.userDetails)];
+        console.log('after');
+        
+        console.log( this.userDetails[userIndex]);
+
       }
 
     }

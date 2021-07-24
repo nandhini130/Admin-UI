@@ -1,4 +1,37 @@
 .customAlert {
     width: 30rem;
     float: right;
+    display: none;
+}
+
+
+
+@media only screen and (max-width: 320px) {
+    .customAlert {
+        width: 10rem !important;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .customAlert {
+        width: 10rem !important;
+    }
+}
+
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+    .customAlert {
+        width: 10rem !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .customAlert {
+        width: 15rem !important;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .customAlert {
+        width: 15rem !important;
+    }
 }

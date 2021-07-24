@@ -30,7 +30,9 @@ export class DeleteUserComponent implements OnInit {
       deleteUser.push(this.user);
       this.usersService.updateUserDetails(deleteUser, 'delete');
     } else {
-      this.usersService.updateUserDetails(this.selectedUSers, 'delete');
+      if(this.selectedUSers.length > 0) {
+        this.usersService.updateUserDetails(this.selectedUSers, 'delete');
+      }
     }
 
     this.activeModal.close();  

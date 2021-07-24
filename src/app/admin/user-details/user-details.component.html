@@ -6,7 +6,7 @@
             <!-- Table Headers -->
               <th *ngFor="let column of columns" scope="col">
                   <div *ngIf="column.header === 'Select Option'; else elseBlock">
-                    <input class="form-check-input" type="checkbox" value="" [(ngModel)]="isAllSelected" (change)="onSelectAll($event)">
+                    <input class="form-check-input darkCheckBox" type="checkbox" value="" [(ngModel)]="isAllSelected" (change)="onSelectAll($event)">
                   </div>
                     <ng-template #elseBlock>{{column.header}}</ng-template>
               </th>
@@ -16,7 +16,7 @@
           <tbody>
               <!-- Table Row Data -->
             <tr *ngFor="let rowData of userDetails | paginate: { itemsPerPage: pageSize, currentPage: page }; let i = index">
-              <th scope="row"><input class="form-check-input" type="checkbox" value="" [checked]="isUserChecked(rowData)" (change)="onRowSelect($event, rowData, i)"></th>
+              <th scope="row"><input class="form-check-input darkCheckBox" type="checkbox" value="" [checked]="isUserChecked(rowData)" (change)="onRowSelect($event, rowData, i)"></th>
               <td>{{rowData.name}}</td>
               <td>{{rowData.email}}</td>
               <td>{{rowData.role}}</td>
@@ -24,6 +24,9 @@
                 <span class="actionIcons" (click)="editUser(rowData)" ><i class="fa fa-edit"></i></span>
                 <span class="actionIcons" (click)="deleteUser(rowData)" ><i class="fa fa-trash-o"></i></span>
             </td>
+            </tr>
+            <tr id="noRecordTR" *ngIf="userDetails.length == 0"> 
+              <td [attr.colspan]='colSpanCount'>No Record Found</td>                              
             </tr>
           </tbody>
     </table>

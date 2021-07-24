@@ -1,6 +1,7 @@
-<div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+
+   <div class="deleteModal">
+   <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -9,7 +10,7 @@
         <p> Are you sure you want to delete these users?</p>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="deleteUsers()">Delete</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.dismiss('Cross click')">Cancel</button>
+        <button type="button" class="btn btn-primary customBtn" (click)="deleteUsers()">Delete</button>
     </div>
 </div>
